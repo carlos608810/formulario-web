@@ -1,10 +1,161 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}CRUD{% endblock %}</title>
-  <link rel="stylesheet" href="C:\Users\alfar\OneDrive\Desktop\backend\formulario-web\styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Producto</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
+
+    .menu {
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .menu h3 {
+      margin-bottom: 15px;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin-bottom: 10px;
+    }
+
+    .menu ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .contenido {
+      flex: 1;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .portada {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      flex: 1 1 45%;
+    }
+
+    .resumen {
+      background-color: #e7f3e7;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .mostrar { background-color: #007bff; }
+    .calcular { background-color: #28a745; }
+    .limpiar { background-color: #dc3545; }
+    .enviar { background-color: #17a2b8; }
+
+    .redes {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .redes a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 24px;
+      color: white;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .redes .facebook { background-color: #3b5998; }
+    .redes .twitter { background-color: #1da1f2; }
+    .redes .instagram { background-color: #e4405f; }
+    .redes .whatsapp { background-color: #25d366; }
+
+    .redes a:hover {
+      opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+      }
+
+      .menu {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="contenedor">
@@ -22,38 +173,39 @@
         <a href="https://wa.me/56954588000?text=Hola%20quiero%20más%20información" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
+
     <div class="contenido">
       <div class="portada">Formulario de Producto</div>
-      <form id="productoForm">
+      <form id="productoForm" action="insertar.php" method="POST">
         <label for="nombre">Nombre</label>
-        <input type="text" id="nombre" required />
+        <input type="text" id="nombre" name="nombre" required />
 
         <label for="descripcion">Descripción</label>
-        <input type="text" id="descripcion" required />
+        <input type="text" id="descripcion" name="descripcion" required />
 
         <label for="precio">Precio</label>
-        <input type="number" id="precio" required />
+        <input type="number" id="precio" name="precio" required />
 
         <label for="categoria">Categoría</label>
-        <input type="text" id="categoria" required />
+        <input type="text" id="categoria" name="categoria" required />
 
         <label for="marca">Marca</label>
-        <input type="text" id="marca" required />
+        <input type="text" id="marca" name="marca" required />
 
         <label for="modelo">Modelo</label>
-        <input type="text" id="modelo" required />
+        <input type="text" id="modelo" name="modelo" required />
 
         <label for="stock">Stock</label>
-        <input type="number" id="stock" required />
+        <input type="number" id="stock" name="stock" required />
 
         <label for="color">Color</label>
-        <input type="text" id="color" required />
+        <input type="text" id="color" name="color" required />
 
         <label for="tamaño">Tamaño</label>
-        <input type="text" id="tamaño" required />
+        <input type="text" id="tamaño" name="tamaño" required />
 
         <label for="fecha">Fecha de ingreso</label>
-        <input type="date" id="fecha" required />
+        <input type="date" id="fecha" name="fecha" required />
 
         <div class="botones">
           <button type="button" class="mostrar" onclick="mostrarResumen()">Mostrar resumen</button>
@@ -94,13 +246,7 @@
         alert("Por favor ingrese precio y stock válidos.");
       }
     }
-
-    document.getElementById("productoForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Formulario enviado correctamente.");
-    });
   </script>
 </body>
 </html>
-
 
