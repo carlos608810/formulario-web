@@ -3,30 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <title>{% block title %}CRUD{% endblock %}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="C:\Users\alfar\OneDrive\Desktop\backend\formulario-web\styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body class="bg-light">
+<body>
+  <div class="contenedor">
+    <div class="menu">
+      <h3>Menú</h3>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <div class="redes">
+        <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/56954588000?text=Hola%20quiero%20más%20información" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="contenido">
+      <div class="portada">Formulario de Producto</div>
+      <form id="productoForm">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" required />
 
-  <div class="container mt-4">
-    {% block content %}{% endblock %}
-  </div>
+        <label for="descripcion">Descripción</label>
+        <input type="text" id="descripcion" required />
 
-  <div> 
-    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo" class="img-fluid mx-auto d-block mt-4 mb-4" style="max-width: 200px;">
-    <div> 
-        <h1 class="text-center mb-4">CRUD con Flask</h1>
-        <p class="text-center">Un proyecto simple para gestionar datos con Flask y SQLite.</p>
+        <label for="precio">Precio</label>
+        <input type="number" id="precio" required />
+
+        <label for="categoria">Categoría</label>
+        <input type="text" id="categoria" required />
+
+        <label for="marca">Marca</label>
+        <input type="text" id="marca" required />
+
+        <label for="modelo">Modelo</label>
+        <input type="text" id="modelo" required />
+
+        <label for="stock">Stock</label>
+        <input type="number" id="stock" required />
+
+        <label for="color">Color</label>
+        <input type="text" id="color" required />
+
+        <label for="tamaño">Tamaño</label>
+        <input type="text" id="tamaño" required />
+
+        <label for="fecha">Fecha de ingreso</label>
+        <input type="date" id="fecha" required />
+
+        <div class="botones">
+          <button type="button" class="mostrar" onclick="mostrarResumen()">Mostrar resumen</button>
+          <button type="button" class="calcular" onclick="calcularTotal()">Calcular precio final</button>
+          <button type="reset" class="limpiar">Limpiar</button>
+          <button type="submit" class="enviar">Enviar</button>
+        </div>
+      </form>
+
+      <div class="resumen" id="resumen"></div>
     </div>
   </div>
-  <footer class="text-center mt-5 mb-4">
-    <p>Síguenos:</p>
-    <a href="https://github.com/carlos608810" target="_blank"><i class="fab fa-github fa-2x mx-2"></i></a>
-    <a href="https://facebook.com/tuusuario" target="_blank"><i class="fab fa-facebook fa-2x mx-2"></i></a>
-    <a href="https://instagram.com/tuusuario" target="_blank"><i class="fab fa-instagram fa-2x mx-2"></i></a>
-  </footer>
 
+  <script>
+    function mostrarResumen() {
+      const nombre = document.getElementById('nombre').value;
+      const precio = document.getElementById('precio').value;
+      const stock = document.getElementById('stock').value;
+      const categoria = document.getElementById('categoria').value;
+      const resumen = `
+        <strong>Resumen del Producto:</strong><br>
+        Nombre: ${nombre}<br>
+        Precio: $${precio}<br>
+        Categoría: ${categoria}<br>
+        Stock Disponible: ${stock}
+      `;
+      document.getElementById('resumen').innerHTML = resumen;
+      document.getElementById('resumen').style.display = 'block';
+    }
+
+    function calcularTotal() {
+      const precio = parseFloat(document.getElementById('precio').value);
+      const stock = parseInt(document.getElementById('stock').value);
+      if (!isNaN(precio) && !isNaN(stock)) {
+        const total = precio * stock;
+        alert(`Precio total en stock: $${total.toFixed(2)}`);
+      } else {
+        alert("Por favor ingrese precio y stock válidos.");
+      }
+    }
+
+    document.getElementById("productoForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Formulario enviado correctamente.");
+    });
+  </script>
 </body>
 </html>
 

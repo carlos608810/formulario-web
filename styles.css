@@ -1,0 +1,151 @@
+body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f2f2f2;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
+
+    .menu {
+      width: 250px;
+      background-color: #333;
+      color: white;
+      padding: 20px;
+    }
+
+    .menu h3 {
+      margin-bottom: 15px;
+    }
+
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu ul li {
+      margin-bottom: 10px;
+    }
+
+    .menu ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .menu ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .contenido {
+      flex: 1;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .portada {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .botones {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      flex: 1 1 45%;
+    }
+
+    .resumen {
+      background-color: #e7f3e7;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .mostrar { background-color: #007bff; }
+    .calcular { background-color: #28a745; }
+    .limpiar { background-color: #dc3545; }
+    .enviar { background-color: #17a2b8; }
+
+    .redes {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .redes a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 24px;
+      color: white;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .redes .facebook { background-color: #3b5998; }
+    .redes .twitter { background-color: #1da1f2; }
+    .redes .instagram { background-color: #e4405f; }
+    .redes .whatsapp { background-color: #25d366; }
+
+    .redes a:hover {
+      opacity: 0.8;
+    }
+
+    @media screen and (max-width: 768px) {
+      .contenedor {
+        flex-direction: column;
+      }
+
+      .menu {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+
