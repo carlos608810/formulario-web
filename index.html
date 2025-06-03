@@ -163,7 +163,7 @@
       <h3>Menú</h3>
       <ul>
         <li><a href="#">Inicio</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="productos.php">Productos</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>
       <div class="redes">
@@ -177,7 +177,7 @@
 
     <div class="contenido">
       <div class="portada">Formulario de Producto</div>
-      <form id="productoForm" action="insertar.php" method="POST">
+      <form id="productoForm" action="insertar.php" method="POST" enctype="multipart/form-data">
         <label for="nombre">Nombre</label>
         <input type="text" id="nombre" name="nombre" required />
 
@@ -207,6 +207,8 @@
 
         <label for="fecha">Fecha de ingreso</label>
         <input type="date" id="fecha" name="fecha" required />
+        <label for="imagen">Imagen</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required />
 
         <div class="botones">
           <button type="button" class="mostrar" onclick="mostrarResumen()">Mostrar resumen</button>
