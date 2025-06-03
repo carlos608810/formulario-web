@@ -211,7 +211,7 @@
         <input type="file" id="imagen" name="imagen" accept="image/*" required />
 
         <div class="botones">
-          <button type="button" class="mostrar" onclick="mostrarResumen()">Mostrar resumen</button>
+          
           <button type="button" class="calcular" onclick="calcularTotal()">Calcular precio final</button>
           <button type="reset" class="limpiar">Limpiar</button>
           <button type="submit" class="enviar">Enviar</button>
@@ -223,22 +223,7 @@
   </div>
 
   <script>
-    function mostrarResumen() {
-      const nombre = document.getElementById('nombre').value;
-      const precio = document.getElementById('precio').value;
-      const stock = document.getElementById('stock').value;
-      const categoria = document.getElementById('categoria').value;
-      const resumen = `
-        <strong>Resumen del Producto:</strong><br>
-        Nombre: ${nombre}<br>
-        Precio: $${precio}<br>
-        Categoría: ${categoria}<br>
-        Stock Disponible: ${stock}
-      `;
-      document.getElementById('resumen').innerHTML = resumen;
-      document.getElementById('resumen').style.display = 'block';
-    }
-
+   
     function calcularTotal() {
       const precio = parseFloat(document.getElementById('precio').value);
       const stock = parseInt(document.getElementById('stock').value);
